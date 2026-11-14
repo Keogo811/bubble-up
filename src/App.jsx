@@ -6,6 +6,7 @@ import { onAuthStateChanged, signOut } from 'firebase/auth'
 import EventDetails from './EventDetails'
 import Auth from './Auth'
 import Profile from './Profile'
+import Admin from './Admin'
 import './App.css'
 
 function Home() {
@@ -89,6 +90,7 @@ function App() {
           {user ? (
             <div className="user-info">
               <Link to="/profile" className="profile-link">Mon Profil</Link>
+              <Link to="/admin" className="profile-link">Admin</Link>
               <button className="btn-login" onClick={handleLogout}>Déconnexion</button>
             </div>
           ) : (
@@ -104,6 +106,7 @@ function App() {
         <Route path="/event/:id" element={<EventDetails />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </div>
   )
