@@ -319,3 +319,25 @@ nav { display: flex; align-items: center; }
   .main-content { padding: 2rem 1rem; }
   .chat-window { width: calc(100vw - 40px); right: -10px; }
 }
+
+/* Animations de survol */
+.event-card {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+}
+.event-card-link:hover .event-card {
+  transform: translateX(8px) scale(1.02);
+}
+
+.stat-card {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.05);
+}
+
+.btn-primary, .btn-login, .profile-link, .chat-toggle, .btn-swipe {
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.btn-primary:hover, .btn-login:hover, .profile-link:hover, .chat-toggle:hover {
+  transform: scale(1.05) translateY(-2px);
+}

@@ -11,8 +11,7 @@ import Swipe from './Swipe'
 import Chat from './Chat'
 import './App.css'
 
-// ⚠️ REMPLACE CET EMAIL PAR CELUI AVEC LEQUEL TU T'ES INSCRIT
-const ADMIN_EMAIL = "hkingkeoman@gmail.com"
+const ADMIN_EMAIL = "test@test.com" // ⚠️ REMPLACE PAR TON EMAIL
 
 function Home() {
   const [events, setEvents] = useState([])
@@ -36,7 +35,7 @@ function Home() {
   return (
     <main className="main-content">
       <section className="hero">
-        <h2>Bienvenue sur Bubble Up</h2>
+        <h2>Bienvenue sur Bubble Up 🌴🎮</h2>
         <p>L'association gaming et ludique du 13ème arrondissement.</p>
         <div className="stats-container">
           <div className="stat-card"><h3>150+</h3><p>Membres</p></div>
@@ -82,18 +81,18 @@ function App() {
     navigate('/')
   }
 
-  const isAdmin = user?.email === ADMIN_EMAIL
+  const isAdmin = user?.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase()
 
   return (
     <div className="app-container">
       <header className="header">
-        <Link to="/" className="logo" style={{textDecoration: 'none'}}>Bubble Up</Link>
+        <Link to="/" className="logo" style={{textDecoration: 'none'}}>Bubble Up 🥤</Link>
         <nav>
           {user ? (
             <div className="user-info">
-              <Link to="/swipe" className="profile-link">Jouer</Link>
+              <Link to="/swipe" className="profile-link">Jouer 🕹️</Link>
               <Link to="/profile" className="profile-link">Mon Profil</Link>
-              {isAdmin && <Link to="/admin" className="profile-link" style={{ color: 'red' }}>Admin</Link>}
+              {isAdmin && <Link to="/admin" className="profile-link admin-link">Admin</Link>}
               <button className="btn-login" onClick={handleLogout}>Déconnexion</button>
             </div>
           ) : (

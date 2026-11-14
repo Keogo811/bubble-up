@@ -44,3 +44,14 @@ body::before {
     radial-gradient(circle at 20% 80%, rgba(255, 176, 103, 0.15) 0%, transparent 40%);
   pointer-events: none;
 }
+
+/* Animation du fond flou */
+@keyframes floatBackground {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(10px, 15px) scale(1.02); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+body::before {
+  animation: floatBackground 20s ease-in-out infinite alternate;
+}
