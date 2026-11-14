@@ -1,14 +1,13 @@
 :root {
-  --bg-color: #f0f4f8;
-  --text-main: #2d3436;
-  --text-light: #636e72;
-  --primary: linear-gradient(135deg, #FF9A8B 0%, #FF6A88 100%);
-  --primary-solid: #FF6A88;
-  --secondary: linear-gradient(135deg, #8EE4AF 0%, #45B649 100%);
-  --card-bg: rgba(255, 255, 255, 0.75);
-  --glass-border: rgba(255, 255, 255, 0.6);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-  --border-radius: 24px;
+  --bg-color: #121220;
+  --text-main: #f0f0f0;
+  --text-light: #a0a0b0;
+  --neon-pink: #ff007f;
+  --neon-cyan: #00f0ff;
+  --neon-purple: #9d4edd;
+  --card-bg: #1a1a2e;
+  --border-color: #2d2d44;
+  --border-radius: 16px;
 }
 
 * {
@@ -27,35 +26,15 @@ body {
   overflow-x: hidden;
 }
 
-/* Bulles de fond fun */
-body::before, body::after {
+/* Grille de fond façon rétro-gaming */
+body::before {
   content: '';
   position: fixed;
-  border-radius: 50%;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 0, 127, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
   z-index: -1;
-  filter: blur(60px);
-  opacity: 0.6;
-}
-
-body::before {
-  width: 400px;
-  height: 400px;
-  background: #FF9A8B;
-  top: -100px;
-  left: -100px;
-  animation: float 10s infinite alternate;
-}
-
-body::after {
-  width: 300px;
-  height: 300px;
-  background: #8EE4AF;
-  bottom: -50px;
-  right: -50px;
-  animation: float 12s infinite alternate-reverse;
-}
-
-@keyframes float {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(30px, 30px); }
+  pointer-events: none;
 }
