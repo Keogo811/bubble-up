@@ -11,7 +11,7 @@ import Swipe from './Swipe'
 import Chat from './Chat'
 import './App.css'
 
-const ADMIN_EMAIL = "test@test.com" // ⚠️ REMPLACE PAR TON EMAIL
+const ADMIN_EMAIL = "hkingkeoman@gmail.com" // ⚠️ REMPLACE PAR TON EMAIL
 
 function Home() {
   const [events, setEvents] = useState([])
