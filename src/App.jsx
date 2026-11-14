@@ -11,6 +11,9 @@ import Swipe from './Swipe'
 import Chat from './Chat'
 import './App.css'
 
+// ⚠️ REMPLACE CET EMAIL PAR CELUI AVEC LEQUEL TU T'ES INSCRIT
+const ADMIN_EMAIL = "hkingkeoman@gmail.com"
+
 function Home() {
   const [events, setEvents] = useState([])
   const [loading, setLoading] = useState(true)
@@ -19,10 +22,7 @@ function Home() {
     const fetchEvents = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "events"))
-        const eventsData = querySnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }))
+        const eventsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
         setEvents(eventsData)
       } catch (error) {
         console.error("Erreur lors de la récupération :", error)
@@ -47,9 +47,7 @@ function Home() {
 
       <section className="calendar-section">
         <h2>Prochains Événements</h2>
-        {loading ? (
-          <p>Chargement des événements...</p>
-        ) : (
+        {loading ? <p>Chargement des événements...</p> : (
           <div className="events-list">
             {events.map(event => (
               <Link to={`/event/${event.id}`} key={event.id} className="event-card-link">
@@ -84,6 +82,8 @@ function App() {
     navigate('/')
   }
 
+  const isAdmin = user?.email === ADMIN_EMAIL
+
   return (
     <div className="app-container">
       <header className="header">
@@ -93,7 +93,7 @@ function App() {
             <div className="user-info">
               <Link to="/swipe" className="profile-link">Jouer</Link>
               <Link to="/profile" className="profile-link">Mon Profil</Link>
-              <Link to="/admin" className="profile-link">Admin</Link>
+              {isAdmin && <Link to="/admin" className="profile-link" style={{ color: 'red' }}>Admin</Link>}
               <button className="btn-login" onClick={handleLogout}>Déconnexion</button>
             </div>
           ) : (

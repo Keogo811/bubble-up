@@ -1,11 +1,14 @@
 :root {
-  --bg-color: #FDFBF7;
-  --text-main: #2C3E50;
-  --text-light: #7F8C8D;
-  --primary: #FF9A8B;
-  --secondary: #8EE4AF;
-  --card-bg: #FFFFFF;
-  --border-radius: 20px;
+  --bg-color: #f0f4f8;
+  --text-main: #2d3436;
+  --text-light: #636e72;
+  --primary: linear-gradient(135deg, #FF9A8B 0%, #FF6A88 100%);
+  --primary-solid: #FF6A88;
+  --secondary: linear-gradient(135deg, #8EE4AF 0%, #45B649 100%);
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  --border-radius: 24px;
 }
 
 * {
@@ -15,8 +18,44 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Nunito', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Bulles de fond fun */
+body::before, body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(60px);
+  opacity: 0.6;
+}
+
+body::before {
+  width: 400px;
+  height: 400px;
+  background: #FF9A8B;
+  top: -100px;
+  left: -100px;
+  animation: float 10s infinite alternate;
+}
+
+body::after {
+  width: 300px;
+  height: 300px;
+  background: #8EE4AF;
+  bottom: -50px;
+  right: -50px;
+  animation: float 12s infinite alternate-reverse;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(30px, 30px); }
 }
