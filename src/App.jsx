@@ -85,6 +85,23 @@ function App() {
 
   return (
     <div className="app-container">
+      {/* --- ARRIÈRE-PLAN ANIMÉ --- */}
+      <div className="bg-lights">
+        <div className="orb orb-pink"></div>
+        <div className="orb orb-blue"></div>
+        <div className="orb orb-green"></div>
+        <div className="orb orb-orange"></div>
+      </div>
+      <div className="bg-emojis">
+        <span className="floating-emoji e1">🎮</span>
+        <span className="floating-emoji e2">🌴</span>
+        <span className="floating-emoji e3">🕹️</span>
+        <span className="floating-emoji e4">🥤</span>
+        <span className="floating-emoji e5">👾</span>
+        <span className="floating-emoji e6">🎲</span>
+        <span className="floating-emoji e7">🎧</span>
+      </div>
+
       <header className="header">
         <Link to="/" className="logo" style={{textDecoration: 'none'}}>Bubble Up 🥤</Link>
         <nav>
