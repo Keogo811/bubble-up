@@ -8,6 +8,7 @@ import Auth from './Auth'
 import Profile from './Profile'
 import Admin from './Admin'
 import Swipe from './Swipe'
+import Chat from './Chat'
 import './App.css'
 
 function Home() {
@@ -111,6 +112,8 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/swipe" element={<Swipe />} />
       </Routes>
+
+      <Chat />
     </div>
   )
 }
