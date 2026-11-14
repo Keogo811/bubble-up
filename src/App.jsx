@@ -7,6 +7,7 @@ import EventDetails from './EventDetails'
 import Auth from './Auth'
 import Profile from './Profile'
 import Admin from './Admin'
+import Swipe from './Swipe'
 import './App.css'
 
 function Home() {
@@ -89,6 +90,7 @@ function App() {
         <nav>
           {user ? (
             <div className="user-info">
+              <Link to="/swipe" className="profile-link">Jouer</Link>
               <Link to="/profile" className="profile-link">Mon Profil</Link>
               <Link to="/admin" className="profile-link">Admin</Link>
               <button className="btn-login" onClick={handleLogout}>Déconnexion</button>
@@ -107,6 +109,7 @@ function App() {
         <Route path="/auth" element={<Auth />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/swipe" element={<Swipe />} />
       </Routes>
     </div>
   )
